@@ -1,7 +1,6 @@
 package testco.kotlin.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import testco.kotlin.R
 import testco.kotlin.fragment.DetailMusicFragment
 
@@ -10,12 +9,19 @@ import testco.kotlin.fragment.DetailMusicFragment
  */
 class DetailMusicActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction()
                 .add(R.id.container, DetailMusicFragment.newInstance())
                 .commit()
+        initToolbar()
+    }
+
+    fun initToolbar() {
+        supportActionBar?.title = "Detail Music"
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
 }

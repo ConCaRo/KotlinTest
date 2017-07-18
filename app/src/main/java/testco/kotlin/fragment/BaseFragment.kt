@@ -9,7 +9,7 @@ import android.view.ViewGroup
 /**
  * Created by Concaro on 7/17/2017.
  */
-open abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

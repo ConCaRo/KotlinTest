@@ -1,7 +1,6 @@
 package testco.kotlin.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import testco.kotlin.R
 import testco.kotlin.fragment.ListMusicFragment
 
@@ -10,8 +9,8 @@ import testco.kotlin.fragment.ListMusicFragment
  */
 class ListMusicActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction()
                 .add(R.id.container, ListMusicFragment.newInstance())

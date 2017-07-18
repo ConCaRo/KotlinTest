@@ -12,17 +12,17 @@ import testco.kotlin.model.Music
 /**
  * Created by Concaro on 7/17/2017.
  */
-class MusicAdapter(val items: ArrayList<Music>,
+class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
+                   val items: ArrayList<Music>,
                    val ctx: Context) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MusicViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_music, parent, false)
-        return MusicViewHolder(v)
-
+        return MusicViewHolder(v).onClick(itemOnClick)
     }
 
     override fun onBindViewHolder(holder: MusicViewHolder?, position: Int) {
-        holder?.text?.text = "Hello co ba"
+        holder?.text?.text = "Hello co ba " + position;
     }
 
     override fun getItemCount(): Int {
@@ -33,4 +33,12 @@ class MusicAdapter(val items: ArrayList<Music>,
     class MusicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var text = itemView.name
     }
+
+    fun <T : RecyclerView.ViewHolder> T.onClick(event: (view: View, position: Int, type: Int) -> Unit): T {
+        itemView.setOnClickListener {
+            event.invoke(it, getAdapterPosition(), getItemViewType())
+        }
+        return this
+    }
+
 }
