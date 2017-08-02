@@ -1,14 +1,13 @@
-package testco.kotlin.fragment
+package testco.kotlin.ui.fragment
 
-import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
-import testco.kotlin.activity.DetailMusicActivity
-import testco.kotlin.adapter.MusicAdapter
+import testco.kotlin.ui.activity.DetailMusicActivity
+import testco.kotlin.ui.adapter.MusicAdapter
 import testco.kotlin.data.DummyData
 
 /**
@@ -32,7 +31,7 @@ class ListMusicFragment : BaseFragment() {
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
         Log.d("MusicAdapter", "position clicked " + position)
-        val intent = Intent().setClass(activity, DetailMusicActivity::class.java)
+        val intent = DetailMusicActivity.callingIntent(activity)
         startActivity(intent)
     }
 

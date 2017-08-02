@@ -1,4 +1,4 @@
-package testco.kotlin.fragment
+package testco.kotlin.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

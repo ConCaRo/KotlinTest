@@ -1,4 +1,4 @@
-package testco.kotlin.fragment
+package testco.kotlin.ui.fragment
 
 import testco.kotlin.R
 

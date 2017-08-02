@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.ListMusicActivity"
+            android:name="testco.kotlin.ui.activity.ListMusicActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.DetailMusicActivity"
+            android:name="testco.kotlin.ui.activity.DetailMusicActivity"
             android:label="@string/app_name">
         </activity>
     </application>

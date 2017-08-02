@@ -1,4 +1,4 @@
-package testco.kotlin.adapter
+package testco.kotlin.ui.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_music.view.*
 import testco.kotlin.R
-import testco.kotlin.model.Music
+import testco.kotlin.ui.entity.Album
 
 /**
  * Created by Concaro on 7/17/2017.
  */
 class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
-                   val items: ArrayList<Music>,
+                   val items: ArrayList<Album>,
                    val ctx: Context) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MusicViewHolder {

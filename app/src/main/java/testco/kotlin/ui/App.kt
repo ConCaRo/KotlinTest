@@ -1,4 +1,4 @@
-package testco.kotlin.app
+package testco.kotlin.ui
 
 import android.app.Application
 
