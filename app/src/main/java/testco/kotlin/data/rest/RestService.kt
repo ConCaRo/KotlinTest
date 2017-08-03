@@ -1,4 +1,4 @@
-package testco.kotlin.data.net
+package testco.kotlin.data.rest
 
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -6,9 +6,9 @@ import retrofit2.http.Query
 import java.util.*
 
 /**
- * Created by Concaro on 8/2/2017.
+ * Created by Concaro on 8/3/2017.
  */
-interface RestApi {
+interface RestService {
 
     @GET("/2.0/?method=artist.gettopalbums")
     fun requestAlbums(@Query("mbid") id: String, @Query("artist") artist: String): Observable<Objects>
