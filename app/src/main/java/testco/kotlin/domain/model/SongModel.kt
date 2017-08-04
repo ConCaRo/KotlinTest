@@ -1,4 +1,4 @@
-package testco.kotlin.data.model
+package testco.kotlin.domain.model
 
 /**
  * Created by Concaro on 8/2/2017.

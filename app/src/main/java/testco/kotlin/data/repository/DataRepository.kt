@@ -1,8 +1,8 @@
 package testco.kotlin.data.repository
 
 import io.reactivex.Observable
-import testco.kotlin.data.model.AlbumEntity
-import testco.kotlin.data.model.mapper.AlbumMapper
+import testco.kotlin.data.entity.AlbumEntity
+import testco.kotlin.data.entity.mapper.AlbumMapper
 import testco.kotlin.data.repository.datasource.DataStoreFactory
 import testco.kotlin.domain.repository.DataRepository
 

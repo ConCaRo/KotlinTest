@@ -4,7 +4,7 @@ import com.fernandocejas.sample.framework.executor.ExecutionThread
 import com.fernandocejas.sample.framework.executor.ThreadExecutor
 import com.fernandocejas.sample.framework.interactor.UseCase
 import io.reactivex.Observable
-import testco.kotlin.data.model.AlbumEntity
+import testco.kotlin.data.entity.AlbumEntity
 import testco.kotlin.domain.repository.DataRepository
 
 /**

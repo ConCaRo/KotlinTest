@@ -19,6 +19,6 @@ class ListMusicActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addFragment(savedInstanceState, ListMusicFragment.newInstance())
-        initToolbar("Detail AlbumEntity", false)
+        initToolbar("Detail AlbumModel", false)
     }
 }
