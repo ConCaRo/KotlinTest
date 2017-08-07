@@ -4,7 +4,7 @@ import com.fernandocejas.sample.framework.executor.ExecutionThread
 import com.fernandocejas.sample.framework.executor.ThreadExecutor
 import com.fernandocejas.sample.framework.interactor.UseCase
 import io.reactivex.Observable
-import testco.kotlin.data.entity.AlbumEntity
+import testco.kotlin.domain.model.AlbumModel
 import testco.kotlin.domain.repository.DataRepository
 
 /**
@@ -12,9 +12,9 @@ import testco.kotlin.domain.repository.DataRepository
  */
 class GetAlbumsUsecase(threadExecutor: ThreadExecutor, executionThread: ExecutionThread,
                        val repository: DataRepository)
-    : UseCase<List<AlbumEntity>, GetAlbumsUsecase.Param>(threadExecutor, executionThread) {
+    : UseCase<List<AlbumModel>, GetAlbumsUsecase.Param>(threadExecutor, executionThread) {
 
-    override fun buildObservable(params: Param): Observable<List<AlbumEntity>> {
+    override fun buildObservable(params: Param): Observable<List<AlbumModel>> {
         return repository.requestAlbums(params.refresh, params.id, params.artist)
     }
 

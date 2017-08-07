@@ -6,9 +6,10 @@ import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
+import testco.kotlin.data.DummyData
 import testco.kotlin.ui.activity.DetailMusicActivity
 import testco.kotlin.ui.adapter.MusicAdapter
-import testco.kotlin.data.DummyData
+import testco.kotlin.ui.viewmodel.ListMusicViewModel
 
 /**
  * Created by Concaro on 7/17/2017.
@@ -25,7 +26,7 @@ class ListMusicFragment : BaseFragment() {
 
     override fun init() {
         recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
-        recyclerview.adapter = MusicAdapter(itemOnClick, DummyData.getListMusic(), activity)
+        recyclerview.adapter = MusicAdapter(itemOnClick, DummyData.getListAlbumModel(), activity)
 
     }
 

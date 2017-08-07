@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_music.view.*
 import testco.kotlin.R
-import testco.kotlin.ui.entity.Album
+import testco.kotlin.domain.model.AlbumModel
 
 /**
  * Created by Concaro on 7/17/2017.
  */
 class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
-                   val items: ArrayList<Album>,
+                   val items: List<AlbumModel>,
                    val ctx: Context) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MusicViewHolder {

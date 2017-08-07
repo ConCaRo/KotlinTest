@@ -11,12 +11,15 @@ import android.view.ViewGroup
  */
 abstract class BaseFragment : Fragment() {
 
+    var rootView : View? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(getLayout(), container, false)
+        rootView = view as View
         return view;
     }
 
