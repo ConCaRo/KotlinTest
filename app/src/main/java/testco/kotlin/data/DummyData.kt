@@ -18,12 +18,12 @@ class DummyData {
     companion object {
 
         fun getListAlbumModel(): List<AlbumModel> {
-            val music0 = AlbumModel("Album 1", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music1 = AlbumModel("Album 2", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music2 = AlbumModel("Album 3", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music3 = AlbumModel("Album 4", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music4 = AlbumModel("Album 5", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music5 = AlbumModel("Album 6", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music0 = AlbumModel("Album 11", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music1 = AlbumModel("Album 23", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music2 = AlbumModel("Album 313", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music3 = AlbumModel("Album 4123", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music4 = AlbumModel("Album 512", getListArtistModel(), getListSongModel(), "123-123-23")
+            val music5 = AlbumModel("Album 631", getListArtistModel(), getListSongModel(), "123-123-23")
 
             return listOf(music0, music1, music2, music3, music4, music5)
         }

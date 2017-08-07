@@ -5,16 +5,17 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.item_music.view.*
 import testco.kotlin.R
-import testco.kotlin.domain.model.AlbumModel
+import testco.kotlin.databinding.ItemMusicBinding
+import testco.kotlin.ui.viewmodel.ListMusicViewModel
+import testco.kotlin.ui.viewmodel.MusicItemViewModel
 
 /**
  * Created by Concaro on 7/17/2017.
  */
 class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
-                   val items: List<AlbumModel>,
-                   val ctx: Context) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
+                   val ctx: Context,
+                   val viewModel: ListMusicViewModel) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MusicViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_music, parent, false)
@@ -22,16 +23,18 @@ class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
     }
 
     override fun onBindViewHolder(holder: MusicViewHolder?, position: Int) {
-        holder?.text?.text = "Hello co ba " + position;
+        val albumModel = viewModel.items.get(position)
+        holder?.itemBinding?.viewModel = MusicItemViewModel(ctx, albumModel)
+        holder?.itemBinding?.executePendingBindings()
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return viewModel?.items.size
     }
 
 
     class MusicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var text = itemView.name
+        var itemBinding = ItemMusicBinding.bind(itemView)
     }
 
     fun <T : RecyclerView.ViewHolder> T.onClick(event: (view: View, position: Int, type: Int) -> Unit): T {

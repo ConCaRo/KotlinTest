@@ -10,8 +10,8 @@ import testco.kotlin.ui.viewmodel.DetailMusicViewModel
  */
 class DetailMusicFragment : BaseFragment() {
 
-    lateinit var detailViewModel: DetailMusicViewModel
-    lateinit var detailMusicFragmentBinding: FragmentDetailMusicBinding
+    lateinit var viewModel: DetailMusicViewModel
+    lateinit var fragmentBinding: FragmentDetailMusicBinding
 
     companion object {
         fun newInstance(): DetailMusicFragment = DetailMusicFragment()
@@ -21,9 +21,13 @@ class DetailMusicFragment : BaseFragment() {
         return R.layout.fragment_detail_music
     }
 
+    override fun initBinding() {
+        viewModel = DetailMusicViewModel(activity, DummyData.getListAlbumModel().get(0))
+        fragmentBinding = FragmentDetailMusicBinding.bind(rootView)
+        fragmentBinding.viewModel = viewModel
+    }
+
     override fun init() {
-        detailViewModel = DetailMusicViewModel(activity, DummyData.getListAlbumModel().get(0))
-        detailMusicFragmentBinding = FragmentDetailMusicBinding.bind(rootView!!)
-        detailMusicFragmentBinding.viewModel = detailViewModel
+
     }
 }

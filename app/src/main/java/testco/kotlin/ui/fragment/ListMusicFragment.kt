@@ -7,6 +7,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
 import testco.kotlin.data.DummyData
+import testco.kotlin.databinding.FragmentListMusicBinding
 import testco.kotlin.ui.activity.DetailMusicActivity
 import testco.kotlin.ui.adapter.MusicAdapter
 import testco.kotlin.ui.viewmodel.ListMusicViewModel
@@ -16,18 +17,30 @@ import testco.kotlin.ui.viewmodel.ListMusicViewModel
  */
 class ListMusicFragment : BaseFragment() {
 
+    lateinit var viewModel: ListMusicViewModel
+    lateinit var fragmentBinding: FragmentListMusicBinding
+
     companion object {
         fun newInstance(): ListMusicFragment = ListMusicFragment()
     }
 
     override fun getLayout(): Int {
-        return R.layout.layout_recyclerview
+        return R.layout.fragment_list_music
+    }
+
+    override fun initBinding() {
+        viewModel = ListMusicViewModel(activity, DummyData.getListAlbumModel())
+        fragmentBinding = FragmentListMusicBinding.bind(rootView)
+        fragmentBinding.viewModel = viewModel
     }
 
     override fun init() {
-        recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
-        recyclerview.adapter = MusicAdapter(itemOnClick, DummyData.getListAlbumModel(), activity)
+        initAdapter()
+    }
 
+    fun initAdapter() {
+        recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
+        recyclerview.adapter = MusicAdapter(itemOnClick,  activity, viewModel)
     }
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
@@ -35,5 +48,6 @@ class ListMusicFragment : BaseFragment() {
         val intent = DetailMusicActivity.callingIntent(activity)
         startActivity(intent)
     }
+
 
 }

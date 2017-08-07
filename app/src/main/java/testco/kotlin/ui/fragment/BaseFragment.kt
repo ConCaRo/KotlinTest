@@ -11,7 +11,7 @@ import android.view.ViewGroup
  */
 abstract class BaseFragment : Fragment() {
 
-    var rootView : View? = null
+    lateinit var rootView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +25,14 @@ abstract class BaseFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        setHasOptionsMenu(true)
+        initBinding()
         init()
     }
 
     abstract fun getLayout(): Int
+
+    abstract fun initBinding()
 
     abstract fun init()
 }
