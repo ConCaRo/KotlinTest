@@ -11,8 +11,8 @@ import testco.kotlin.ui.fragment.DetailMusicFragment
 class DetailMusicActivity : BaseActivity() {
 
     companion object {
-        fun callingIntent(context: Context): Intent {
-            return Intent(context, DetailMusicActivity::class.java)
+        fun callingIntent(context: Context,  position: Int): Intent {
+            return Intent(context, DetailMusicActivity::class.java).putExtra("position", position)
         }
     }
 

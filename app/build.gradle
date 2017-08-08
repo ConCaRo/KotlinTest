@@ -49,5 +49,7 @@ dependencies {
     compile "javax.inject:javax.inject:1"
 
     kapt "com.android.databinding:compiler:3.0.0-alpha3"
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    kapt  'com.github.bumptech.glide:compiler:4.0.0'
 
 }

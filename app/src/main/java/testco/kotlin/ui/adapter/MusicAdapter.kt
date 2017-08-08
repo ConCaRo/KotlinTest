@@ -32,7 +32,6 @@ class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
         return viewModel?.items.size
     }
 
-
     class MusicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemBinding = ItemMusicBinding.bind(itemView)
     }

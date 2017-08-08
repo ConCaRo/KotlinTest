@@ -17,20 +17,39 @@
         android:layout_margin="@dimen/fab_margin"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:imageUrl="@{viewModel.albumModel.cover}"/>
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_gravity="center"
             android:text="@{viewModel.albumModel.name}"
-            android:textSize="20sp"
+            android:textSize="22sp"
             />
 
         <TextView
             android:id="@+id/lsMusics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"
             android:text="@{viewModel.toStringListSongs}"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/lsArtists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:text="@{viewModel.toStringListArtists}"
+            android:textSize="18sp"/>
     </LinearLayout>
 </layout>
 

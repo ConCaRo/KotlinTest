@@ -13,6 +13,7 @@ class AlbumMapper(val artistMapper: ArtistMapper = ArtistMapper(),
 
     override fun transform(entity: AlbumEntity?): AlbumModel? {
         return AlbumModel(entity?.name!!,
+                entity.cover,
                 artistMapper.transformCollection(entity.artists),
                 songMapper.transformCollection(entity?.songs),
                 entity.release_date)

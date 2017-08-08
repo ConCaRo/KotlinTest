@@ -22,7 +22,9 @@ class DetailMusicFragment : BaseFragment() {
     }
 
     override fun initBinding() {
-        viewModel = DetailMusicViewModel(activity, DummyData.getListAlbumModel().get(0))
+        val bundle = activity.intent.extras
+        val position: Int = bundle.getInt("position", 0);
+        viewModel = DetailMusicViewModel(activity, DummyData.getListAlbumModel()[position])
         fragmentBinding = FragmentDetailMusicBinding.bind(rootView)
         fragmentBinding.viewModel = viewModel
     }

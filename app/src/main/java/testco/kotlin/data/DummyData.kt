@@ -17,15 +17,48 @@ class DummyData {
 
     companion object {
 
-        fun getListAlbumModel(): List<AlbumModel> {
-            val music0 = AlbumModel("Album 11", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music1 = AlbumModel("Album 23", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music2 = AlbumModel("Album 313", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music3 = AlbumModel("Album 4123", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music4 = AlbumModel("Album 512", getListArtistModel(), getListSongModel(), "123-123-23")
-            val music5 = AlbumModel("Album 631", getListArtistModel(), getListSongModel(), "123-123-23")
+        val listImages = listOf(
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/yang_zhuo_yong_cuo,_tibet-china-63.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/yellowstone-united_states-17.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/victoria-australia-31.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/valencia-spain-82.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/xigaze,_tibet-china-30.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/utah-united_states-96.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/utah-united_states-15.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/utah-united_states-88.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/umm_al_quwain-united_arab_emirates-13.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/texas-united_states-26.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/siuslaw_national_forest-united_states-92.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/the_minquiers-channel_islands-69.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/texas-united_states-84.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/tabuaeran-kiribati-50.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/stanislaus_river-united_states-61.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/s?ehitkamil-turkey-72.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/salinas_grandes-argentina-25.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/shadegan_refuge-iran-12.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/san_pedro_de_atacama-chile-43.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/ragged_island-the_bahamas-64.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/qinghai_lake-china-80.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/qesm_al_wahat_ad_dakhlah-egypt-56.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/riedstadt-germany-42.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/redwood_city-united_states-48.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/nyingchi,_tibet-china-98.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/ngari,_tibet-china-57.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/pozoantiguo-spain-99.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/ningaloo-australia-73.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/niederzier-germany-79.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/olympic_dam-australia-65.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/peedamulla-australia-40.jpg",
+                "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/nevado_tres_cruces_park-chile-89.jpg")
 
-            return listOf(music0, music1, music2, music3, music4, music5)
+        fun getListAlbumModel(): List<AlbumModel> {
+            val lsAlbums = ArrayList<AlbumModel>()
+            for (i in 1..30) {
+                val music = AlbumModel("Album " + i, listImages.get(i), getListArtistModel(),
+                        getListSongModel(), "123-123-23")
+                lsAlbums.add(music)
+            }
+            return lsAlbums
         }
 
         fun getListArtistModel(): ArrayList<ArtistModel> {
@@ -70,24 +103,16 @@ class DummyData {
         }
 
 
-
-
-
-
-
-
-
-
-
         fun getListAlbum(): Observable<List<AlbumEntity>> {
-            val music0 = AlbumEntity("Album 1", getListArtist(), getListSong(), "123-123-23")
-            val music1 = AlbumEntity("Album 2", getListArtist(), getListSong(), "123-123-23")
-            val music2 = AlbumEntity("Album 3", getListArtist(), getListSong(), "123-123-23")
-            val music3 = AlbumEntity("Album 4", getListArtist(), getListSong(), "123-123-23")
-            val music4 = AlbumEntity("Album 5", getListArtist(), getListSong(), "123-123-23")
-            val music5 = AlbumEntity("Album 6", getListArtist(), getListSong(), "123-123-23")
 
-            return Observable.just(listOf(music0, music1, music2, music3, music4, music5))
+            val lsAlbums = ArrayList<AlbumEntity>()
+            for (i in 1..20) {
+                val music = AlbumEntity("Album " + i, listImages.get(i), getListArtist(),
+                        getListSong(), "123-123-23")
+                lsAlbums.add(music)
+            }
+
+            return Observable.just(lsAlbums)
         }
 
         fun getListArtist(): ArrayList<ArtistEntity> {

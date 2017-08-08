@@ -45,7 +45,7 @@ class ListMusicFragment : BaseFragment() {
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
         Log.d("MusicAdapter", "position clicked " + position)
-        val intent = DetailMusicActivity.callingIntent(activity)
+        val intent = DetailMusicActivity.callingIntent(activity, position)
         startActivity(intent)
     }
 
