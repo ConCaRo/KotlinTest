@@ -63,22 +63,22 @@ class DummyData {
 
         fun getListArtistModel(): ArrayList<ArtistModel> {
             val artist0 = ArtistModel("Artist 0", "123-123-23")
-            val artist1 = ArtistModel("Artist 0", "123-123-23")
-            val artist2 = ArtistModel("Artist 0", "123-123-23")
-            val artist3 = ArtistModel("Artist 0", "123-123-23")
-            val artist4 = ArtistModel("Artist 0", "123-123-23")
-            val artist5 = ArtistModel("Artist 0", "123-123-23")
+            val artist1 = ArtistModel("Artist 1", "123-123-23")
+            val artist2 = ArtistModel("Artist 2", "123-123-23")
+            val artist3 = ArtistModel("Artist 3", "123-123-23")
+            val artist4 = ArtistModel("Artist 4", "123-123-23")
+            val artist5 = ArtistModel("Artist 5", "123-123-23")
 
             return arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5)
         }
 
         fun getListSingerModel(): ArrayList<SingerModel> {
-            val artist0 = SingerModel("Artist 0", "123-123-23")
-            val artist1 = SingerModel("Artist 0", "123-123-23")
-            val artist2 = SingerModel("Artist 0", "123-123-23")
-            val artist3 = SingerModel("Artist 0", "123-123-23")
-            val artist4 = SingerModel("Artist 0", "123-123-23")
-            val artist5 = SingerModel("Artist 0", "123-123-23")
+            val artist0 = SingerModel("Singer 0", "123-123-23")
+            val artist1 = SingerModel("Singer 1", "123-123-23")
+            val artist2 = SingerModel("Singer 2", "123-123-23")
+            val artist3 = SingerModel("Singer 3", "123-123-23")
+            val artist4 = SingerModel("Singer 4", "123-123-23")
+            val artist5 = SingerModel("Singer 5", "123-123-23")
 
             return arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5)
         }
@@ -116,23 +116,23 @@ class DummyData {
         }
 
         fun getListArtist(): ArrayList<ArtistEntity> {
-            val artist0 = ArtistEntity("Artist 0", "123-123-23")
-            val artist1 = ArtistEntity("Artist 0", "123-123-23")
-            val artist2 = ArtistEntity("Artist 0", "123-123-23")
-            val artist3 = ArtistEntity("Artist 0", "123-123-23")
-            val artist4 = ArtistEntity("Artist 0", "123-123-23")
-            val artist5 = ArtistEntity("Artist 0", "123-123-23")
+            val artist0 = ArtistEntity("Artist 1", "123-123-23")
+            val artist1 = ArtistEntity("Artist 2", "123-123-23")
+            val artist2 = ArtistEntity("Artist 3", "123-123-23")
+            val artist3 = ArtistEntity("Artist 4", "123-123-23")
+            val artist4 = ArtistEntity("Artist 5", "123-123-23")
+            val artist5 = ArtistEntity("Artist 6", "123-123-23")
 
             return arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5)
         }
 
         fun getListSinger(): ArrayList<SingerEntity> {
-            val artist0 = SingerEntity("Artist 0", "123-123-23")
-            val artist1 = SingerEntity("Artist 0", "123-123-23")
-            val artist2 = SingerEntity("Artist 0", "123-123-23")
-            val artist3 = SingerEntity("Artist 0", "123-123-23")
-            val artist4 = SingerEntity("Artist 0", "123-123-23")
-            val artist5 = SingerEntity("Artist 0", "123-123-23")
+            val artist0 = SingerEntity("Singer 0", "123-123-23")
+            val artist1 = SingerEntity("Singer 1", "123-123-23")
+            val artist2 = SingerEntity("Singer 2", "123-123-23")
+            val artist3 = SingerEntity("Singer 3", "123-123-23")
+            val artist4 = SingerEntity("Singer 4", "123-123-23")
+            val artist5 = SingerEntity("Singer 5", "123-123-23")
 
             return arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5)
         }

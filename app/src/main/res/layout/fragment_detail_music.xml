@@ -3,53 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="testco.kotlin.ui.viewmodel.DetailMusicViewModel"/>
+            type="testco.kotlin.ui.viewmodel.DetailMusicViewModel" />
 
     </data>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/fab_margin"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            app:imageUrl="@{viewModel.albumModel.cover}"/>
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/fab_margin"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:layout_gravity="center"
-            android:text="@{viewModel.albumModel.name}"
-            android:textSize="22sp"
-            />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                app:imageUrl="@{viewModel.albumModel.cover}" />
 
-        <TextView
-            android:id="@+id/lsMusics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:text="@{viewModel.toStringListSongs}"
-            android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@{viewModel.albumModel.name}"
+                android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/lsArtists"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:text="@{viewModel.toStringListArtists}"
-            android:textSize="18sp"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/lsMusics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@{viewModel.toStringListSongs}"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lsArtists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@{viewModel.toStringListArtists}"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </layout>
 
