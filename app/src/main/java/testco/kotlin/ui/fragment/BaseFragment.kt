@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import testco.kotlin.di.ApplicationComponent
+import testco.kotlin.ui.App
 
 /**
  * Created by Concaro on 7/17/2017.
@@ -26,6 +28,7 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
+        initInjection()
         initBinding()
         init()
     }
@@ -34,5 +37,12 @@ abstract class BaseFragment : Fragment() {
 
     abstract fun initBinding()
 
+    abstract fun initInjection()
+
     abstract fun init()
+
+    fun getApplicationComponent(): ApplicationComponent {
+        return (activity.application as App).applicationComponent
+    }
+
 }

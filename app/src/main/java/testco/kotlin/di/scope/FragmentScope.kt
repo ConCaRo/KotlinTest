@@ -1,4 +1,4 @@
-package testco.kotlin.di
+package testco.kotlin.di.scope
 
 import javax.inject.Scope
 
@@ -6,4 +6,4 @@ import javax.inject.Scope
  * Created by Concaro on 8/9/2017.
  */
 @Scope
-annotation class ForFragment
+annotation class FragmentScope

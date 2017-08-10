@@ -20,6 +20,9 @@ class DetailMusicFragment : BaseFragment() {
     override fun getLayout(): Int {
         return R.layout.fragment_detail_music
     }
+    override fun initInjection() {
+
+    }
 
     override fun initBinding() {
         val bundle = activity.intent.extras
