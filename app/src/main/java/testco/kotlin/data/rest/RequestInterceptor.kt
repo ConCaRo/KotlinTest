@@ -18,9 +18,10 @@ package com.antonioleiva.bandhookkotlin.data.lastfm
 
 import okhttp3.Interceptor
 import okhttp3.Response
+import javax.inject.Inject
 
 
-class RequestInterceptor(val cacheDuration: Int) : Interceptor {
+class RequestInterceptor @Inject constructor(val cacheDuration: Int) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
 

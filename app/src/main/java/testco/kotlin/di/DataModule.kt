@@ -18,7 +18,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import testco.kotlin.BuildConfig
 import testco.kotlin.R
+import testco.kotlin.data.rest.RestConstant
 import testco.kotlin.data.rest.RestService
+import testco.kotlin.domain.repository.DataRepository
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -29,8 +31,7 @@ import javax.inject.Singleton
 @Module
 class DataModule {
 
-    val URL = ""
-    val BASE_URL = URL + ""
+    val BASE_URL = RestConstant.BASE_URL
 
     @Provides
     @Singleton
@@ -101,4 +102,10 @@ class DataModule {
     @Provides
     @Singleton
     fun provideRestService(retrofit: Retrofit): RestService = retrofit.create(RestService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDataReposity(dataRepository: testco.kotlin.data.repository.DataRepository) : DataRepository {
+        return dataRepository
+    }
 }

@@ -10,9 +10,9 @@ import java.util.*
  */
 interface RestService {
 
-    @GET("/2.0/?method=artist.gettopalbums")
+    @GET("ablums")
     fun requestAlbums(@Query("mbid") id: String, @Query("artist") artist: String): Observable<Objects>
 
-    @GET("/2.0/?method=album.getInfo")
+    @GET("album")
     fun requestAlbum(@Query("mbid") id: String): Observable<Objects>
 }
