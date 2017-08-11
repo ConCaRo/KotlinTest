@@ -16,7 +16,7 @@ abstract class UseCase<T, in Params> constructor(val threadExecutor: ThreadExecu
     fun execute(observer: UseCaseObserver<T>, params: Params = null!!) {
         buildObservable(params)
                 .subscribeOn(Schedulers.from(threadExecutor))
-                .observeOn(executionThread.scheduler())
+                .observeOn(executionThread.scheduler)
                 .subscribeWith(observer)
     }
 

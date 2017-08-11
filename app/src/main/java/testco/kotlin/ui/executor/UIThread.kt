@@ -9,11 +9,7 @@ import javax.inject.Singleton
 @Singleton
 class UIThread @Inject constructor() : ExecutionThread {
 
-    override fun scheduler(): Scheduler {
-        return scheduler
-    }
-
-    val scheduler: Scheduler
+    override val scheduler: Scheduler
         get() = AndroidSchedulers.mainThread()
 
 
