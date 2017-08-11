@@ -2,11 +2,12 @@ package testco.kotlin.data.rest
 
 import io.reactivex.Observable
 import java.util.*
+import javax.inject.Inject
 
 /**
  * Created by Concaro on 8/2/2017.
  */
-class RestApiImpl(val restService: RestService) : RestApi {
+class RestApiImpl @Inject constructor(val restService: RestService) : RestApi {
 
     override fun requestAlbums(id: String, artist: String): Observable<Objects> {
         return restService.requestAlbums(id, artist)

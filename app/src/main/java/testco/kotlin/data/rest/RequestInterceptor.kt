@@ -20,7 +20,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 
 
-class RequestInterceptor(val cacheDuration: Int) : Interceptor {
+class RequestInterceptor (val cacheDuration: Int) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
 

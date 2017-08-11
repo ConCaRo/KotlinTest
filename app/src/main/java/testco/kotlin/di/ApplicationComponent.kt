@@ -1,8 +1,6 @@
 package testco.kotlin.di
 
-import android.content.Context
 import dagger.Component
-import io.realm.Realm
 import testco.kotlin.ui.App
 import testco.kotlin.ui.fragment.ListMusicFragment
 import javax.inject.Singleton
@@ -18,7 +16,7 @@ interface ApplicationComponent {
     fun inject(fragment: ListMusicFragment)
 
     val app: App
-    fun context(): Context
-    fun realm(): Realm
+    /*fun context(): Context
+    fun realm(): Realm*/
 
 }
