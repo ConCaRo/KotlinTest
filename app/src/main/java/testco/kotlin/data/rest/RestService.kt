@@ -15,5 +15,5 @@ interface RestService {
     fun requestAlbums(@Query("mbid") id: String, @Query("artist") artist: String): Observable<List<AlbumEntity>>
 
     @GET("album")
-    fun requestAlbum(@Query("mbid") id: String): Observable<Objects>
+    fun requestAlbum(@Query("mbid") id: String): Observable<AlbumEntity>
 }

@@ -1,5 +1,6 @@
 package testco.kotlin.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,11 @@ abstract class BaseFragment : Fragment() {
 
     lateinit var rootView: View
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        initInjection()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,7 +34,7 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
-        initInjection()
+
         initBinding()
         init()
     }
@@ -37,7 +43,9 @@ abstract class BaseFragment : Fragment() {
 
     abstract fun initBinding()
 
-    abstract fun initInjection()
+    open fun initInjection() {
+        /*getApplicationComponent().inject(this)*/
+    }
 
     abstract fun init()
 

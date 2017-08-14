@@ -34,6 +34,7 @@ class ListMusicFragment : BaseFragment() {
     }
 
     override fun initInjection() {
+        super.initInjection()
         getApplicationComponent().plus(ListMusicModule(this))
                 .injectTo(this)
     }

@@ -23,6 +23,7 @@ class DetailMusicFragment : BaseFragment() {
     }
 
     override fun initInjection() {
+        super.initInjection()
         getApplicationComponent().plus(DetailMusicModule(this))
                 .injectTo(this)
     }
