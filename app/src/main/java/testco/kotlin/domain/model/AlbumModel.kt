@@ -7,5 +7,5 @@ class AlbumModel(val name: String,
                  val cover: String,
                  val artists: List<ArtistModel>?,
                  val songs: List<SongModel>,
-                 val release_date: String) {
+                 val release_date: String)   {
 }

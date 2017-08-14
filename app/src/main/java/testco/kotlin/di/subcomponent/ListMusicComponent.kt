@@ -13,5 +13,5 @@ import testco.kotlin.ui.fragment.ListMusicFragment
         ListMusicModule::class))
 interface ListMusicComponent {
 
-    fun inject(fragment: ListMusicFragment)
+    fun injectTo(fragment: ListMusicFragment)
 }

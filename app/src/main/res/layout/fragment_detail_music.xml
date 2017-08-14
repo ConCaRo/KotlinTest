@@ -28,7 +28,7 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/ic_launcher"
-                app:imageUrl="@{viewModel.albumModel.cover}" />
+                app:imageUrl="@{viewModel.album.cover}" />
 
             <TextView
                 android:id="@+id/name"
@@ -36,7 +36,7 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/fab_margin"
-                android:text="@{viewModel.albumModel.name}"
+                android:text="@{viewModel.album.name}"
                 android:textSize="22sp" />
 
             <TextView

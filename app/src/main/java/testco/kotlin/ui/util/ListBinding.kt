@@ -1,6 +1,7 @@
 package testco.kotlin.ui.util
 
 import android.databinding.BindingAdapter
+import android.databinding.ObservableList
 import android.support.v7.widget.RecyclerView
 import testco.kotlin.domain.model.AlbumModel
 
@@ -11,7 +12,7 @@ object ListBinding {
 
     @JvmStatic
     @BindingAdapter("app:items")
-    fun setItems(recyclerView: RecyclerView, items: List<AlbumModel>) {
+    fun setItems(recyclerView: RecyclerView, items: ObservableList<AlbumModel>) {
         recyclerView.adapter.notifyDataSetChanged()
     }
 }

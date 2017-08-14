@@ -1,16 +1,17 @@
 package testco.kotlin.ui.fragment
 
 import testco.kotlin.R
-import testco.kotlin.data.DummyData
 import testco.kotlin.databinding.FragmentDetailMusicBinding
+import testco.kotlin.di.module.DetailMusicModule
 import testco.kotlin.ui.viewmodel.DetailMusicViewModel
+import javax.inject.Inject
 
 /**
  * Created by Concaro on 7/17/2017.
  */
 class DetailMusicFragment : BaseFragment() {
 
-    lateinit var viewModel: DetailMusicViewModel
+    lateinit @Inject var viewModel: DetailMusicViewModel
     lateinit var fragmentBinding: FragmentDetailMusicBinding
 
     companion object {
@@ -20,19 +21,20 @@ class DetailMusicFragment : BaseFragment() {
     override fun getLayout(): Int {
         return R.layout.fragment_detail_music
     }
-    override fun initInjection() {
 
+    override fun initInjection() {
+        getApplicationComponent().plus(DetailMusicModule(this))
+                .injectTo(this)
     }
 
     override fun initBinding() {
         val bundle = activity.intent.extras
         val position: Int = bundle.getInt("position", 0);
-        viewModel = DetailMusicViewModel(activity, DummyData.getListAlbumModel()[position])
         fragmentBinding = FragmentDetailMusicBinding.bind(rootView)
         fragmentBinding.viewModel = viewModel
     }
 
     override fun init() {
-
+        viewModel.loadData()
     }
 }

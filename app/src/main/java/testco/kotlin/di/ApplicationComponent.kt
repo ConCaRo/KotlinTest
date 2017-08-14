@@ -1,7 +1,9 @@
 package testco.kotlin.di
 
 import dagger.Component
+import testco.kotlin.di.module.DetailMusicModule
 import testco.kotlin.di.module.ListMusicModule
+import testco.kotlin.di.subcomponent.DetailMusicComponent
 import testco.kotlin.di.subcomponent.ListMusicComponent
 import testco.kotlin.ui.App
 import testco.kotlin.ui.fragment.ListMusicFragment
@@ -26,6 +28,7 @@ interface ApplicationComponent {
 
     // Sub Components
     fun plus(module: ListMusicModule): ListMusicComponent
+    fun plus(module: DetailMusicModule): DetailMusicComponent
 
 
 }

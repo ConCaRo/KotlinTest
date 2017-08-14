@@ -4,14 +4,10 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import com.google.gson.Gson
-import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
 import testco.kotlin.databinding.FragmentListMusicBinding
 import testco.kotlin.di.module.ListMusicModule
-import testco.kotlin.domain.model.AlbumModel
-import testco.kotlin.domain.repository.DataRepository
 import testco.kotlin.ui.activity.DetailMusicActivity
 import testco.kotlin.ui.adapter.MusicAdapter
 import testco.kotlin.ui.viewmodel.ListMusicViewModel
@@ -25,9 +21,9 @@ class ListMusicFragment : BaseFragment() {
     lateinit @Inject var viewModel: ListMusicViewModel
     lateinit var fragmentBinding: FragmentListMusicBinding
 
-    lateinit @Inject var realm: Realm
+   /* lateinit @Inject var realm: Realm
     lateinit @Inject var gson: Gson
-    lateinit @Inject var dataRepository: DataRepository
+    lateinit @Inject var dataRepository: DataRepository*/
 
     companion object {
         fun newInstance(): ListMusicFragment = ListMusicFragment()
@@ -39,7 +35,7 @@ class ListMusicFragment : BaseFragment() {
 
     override fun initInjection() {
         getApplicationComponent().plus(ListMusicModule(this))
-                .inject(this)
+                .injectTo(this)
     }
 
     override fun initBinding() {
@@ -62,11 +58,6 @@ class ListMusicFragment : BaseFragment() {
     fun initAdapter() {
         recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
         recyclerview.adapter = MusicAdapter(itemOnClick, activity, viewModel)
-    }
-
-    fun notifyAdapter(value: List<AlbumModel>) {
-        viewModel.updateData(value)
-        recyclerview.adapter.notifyDataSetChanged();
     }
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
