@@ -6,7 +6,6 @@ import com.jota.sunshine.UIThread
 import com.jota.sunshine.data.executor.JobExecutor
 import dagger.Module
 import dagger.Provides
-import testco.kotlin.di.scope.FragmentScope
 import testco.kotlin.domain.interactor.GetAlbumsUsecase
 import testco.kotlin.domain.repository.DataRepository
 import javax.inject.Singleton
@@ -30,7 +29,7 @@ class DomainModule {
     }
 
     @Provides
-    @FragmentScope
+    @Singleton
     fun provideGetAlbumsUsecase(threadExecutor: ThreadExecutor, executionThread: ExecutionThread,
                                 repository: DataRepository) : GetAlbumsUsecase {
         return GetAlbumsUsecase(threadExecutor, executionThread, repository)

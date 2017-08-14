@@ -18,6 +18,8 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import testco.kotlin.BuildConfig
 import testco.kotlin.R
+import testco.kotlin.data.rest.RestApi
+import testco.kotlin.data.rest.RestApiImpl
 import testco.kotlin.data.rest.RestConstant
 import testco.kotlin.data.rest.RestService
 import testco.kotlin.domain.repository.DataRepository
@@ -102,6 +104,11 @@ class DataModule {
     @Provides
     @Singleton
     fun provideRestService(retrofit: Retrofit): RestService = retrofit.create(RestService::class.java)
+
+    @Provides
+    @Singleton
+    fun providRestApi(restApiImpl: RestApiImpl) : RestApi = restApiImpl
+
 
     @Provides
     @Singleton

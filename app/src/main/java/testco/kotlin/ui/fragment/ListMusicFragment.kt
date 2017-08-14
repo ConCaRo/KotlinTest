@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
 import testco.kotlin.data.DummyData
 import testco.kotlin.databinding.FragmentListMusicBinding
-import testco.kotlin.domain.interactor.GetAlbumsUsecase
 import testco.kotlin.domain.model.AlbumModel
+import testco.kotlin.domain.repository.DataRepository
 import testco.kotlin.ui.activity.DetailMusicActivity
 import testco.kotlin.ui.adapter.MusicAdapter
 import testco.kotlin.ui.viewmodel.ListMusicViewModel
@@ -28,7 +28,9 @@ class ListMusicFragment : BaseFragment() {
 
     lateinit @Inject var realm: Realm
     lateinit @Inject var gson: Gson
-    lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
+    lateinit @Inject var dataRepository: DataRepository
+//    lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
+
 
     companion object {
         fun newInstance(): ListMusicFragment = ListMusicFragment()

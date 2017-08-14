@@ -3,6 +3,9 @@ package testco.kotlin.di
 import android.content.Context
 import dagger.Component
 import io.realm.Realm
+import testco.kotlin.data.cache.DBHelper
+import testco.kotlin.data.rest.RestService
+import testco.kotlin.domain.interactor.GetAlbumsUsecase
 import testco.kotlin.domain.repository.DataRepository
 import testco.kotlin.ui.App
 import testco.kotlin.ui.fragment.ListMusicFragment
@@ -21,6 +24,10 @@ interface ApplicationComponent {
     val app: App
     fun context(): Context
     fun realm(): Realm
+    fun dbHelper() : DBHelper
+    fun restService(): RestService
     fun dataRepository(): DataRepository
+    fun getAlbumsUsecase() : GetAlbumsUsecase
+
 
 }
