@@ -1,6 +1,9 @@
 package testco.kotlin.ui.viewmodel
 
 import android.content.Context
+import android.databinding.BaseObservable
+import android.databinding.ObservableArrayList
+import android.databinding.ObservableList
 import android.util.Log
 import com.fernandocejas.sample.framework.interactor.UseCaseObserver
 import testco.kotlin.domain.interactor.GetAlbumsUsecase
@@ -10,9 +13,9 @@ import javax.inject.Inject
 /**
  * Created by Concaro on 8/7/2017.
  */
-class ListMusicViewModel @Inject constructor(context: Context) {
+class ListMusicViewModel @Inject constructor(var context: Context) : BaseObservable() {
 
-    var items: MutableList<AlbumModel> = ArrayList()
+    var items: ObservableList<AlbumModel> = ObservableArrayList<AlbumModel>()
     lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
 
     fun loadData() {
