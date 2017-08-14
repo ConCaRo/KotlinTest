@@ -51,7 +51,7 @@ class DummyData {
                 "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/peedamulla-australia-40.jpg",
                 "https://raw.githubusercontent.com/mikepenz/earthview-wallpapers/develop/thumb/nevado_tres_cruces_park-chile-89.jpg")
 
-        fun getListAlbumModel(): List<AlbumModel> {
+        fun getListAlbumModel(): MutableList<AlbumModel> {
             val lsAlbums = ArrayList<AlbumModel>()
             for (i in 1..30) {
                 val music = AlbumModel("Album " + i, listImages.get(i), getListArtistModel(),

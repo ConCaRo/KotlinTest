@@ -4,13 +4,13 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import com.fernandocejas.sample.framework.interactor.UseCaseObserver
 import com.google.gson.Gson
 import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
-import testco.kotlin.data.DummyData
 import testco.kotlin.databinding.FragmentListMusicBinding
+import testco.kotlin.di.module.ListMusicModule
+import testco.kotlin.domain.interactor.GetAlbumsUsecase
 import testco.kotlin.domain.model.AlbumModel
 import testco.kotlin.domain.repository.DataRepository
 import testco.kotlin.ui.activity.DetailMusicActivity
@@ -23,14 +23,13 @@ import javax.inject.Inject
  */
 class ListMusicFragment : BaseFragment() {
 
-    lateinit var viewModel: ListMusicViewModel
+    lateinit @Inject var viewModel: ListMusicViewModel
     lateinit var fragmentBinding: FragmentListMusicBinding
 
     lateinit @Inject var realm: Realm
     lateinit @Inject var gson: Gson
     lateinit @Inject var dataRepository: DataRepository
-//    lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
-
+    lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
 
     companion object {
         fun newInstance(): ListMusicFragment = ListMusicFragment()
@@ -41,11 +40,11 @@ class ListMusicFragment : BaseFragment() {
     }
 
     override fun initInjection() {
-        getApplicationComponent().inject(this)
+        getApplicationComponent().plus(ListMusicModule(this))
+                .inject(this)
     }
 
     override fun initBinding() {
-        viewModel = ListMusicViewModel(activity, DummyData.getListAlbumModel())
         fragmentBinding = FragmentListMusicBinding.bind(rootView)
         fragmentBinding.viewModel = viewModel
     }
@@ -53,30 +52,23 @@ class ListMusicFragment : BaseFragment() {
     override fun init() {
         initAdapter()
 
-        val json = gson.toJson(DummyData.getListAlbumModel())
-        Log.d("Trong", json)
-        realm.deleteAll();
+        //  Test gson
+        /*val json = gson.toJson(DummyData.getListAlbumModel())
+        Log.d("Trong", json)*/
+        // Test Realm
+        /*realm.deleteAll();*/
 
-        /*getAlbumsUsecase.execute(AlbumsObserver(), GetAlbumsUsecase.Param.initValue(true, "", ""))*/
+        viewModel.loadData()
     }
-
-    class AlbumsObserver : UseCaseObserver<List<AlbumModel>>() {
-
-        override fun onNext(value: List<AlbumModel>) {
-            super.onNext(value)
-            Log.d("Trong", value.toString())
-        }
-
-        override fun onError(e: Throwable) {
-            super.onError(e)
-            Log.d("Trong", e.printStackTrace().toString())
-        }
-    }
-
 
     fun initAdapter() {
         recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
         recyclerview.adapter = MusicAdapter(itemOnClick, activity, viewModel)
+    }
+
+    fun notifyAdapter(value: List<AlbumModel>) {
+        viewModel.updateData(value)
+        recyclerview.adapter.notifyDataSetChanged();
     }
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->

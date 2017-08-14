@@ -3,6 +3,7 @@ package testco.kotlin.data.rest
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
+import testco.kotlin.data.entity.AlbumEntity
 import java.util.*
 
 /**
@@ -10,8 +11,8 @@ import java.util.*
  */
 interface RestService {
 
-    @GET("ablums")
-    fun requestAlbums(@Query("mbid") id: String, @Query("artist") artist: String): Observable<Objects>
+    @GET("albums")
+    fun requestAlbums(@Query("mbid") id: String, @Query("artist") artist: String): Observable<List<AlbumEntity>>
 
     @GET("album")
     fun requestAlbum(@Query("mbid") id: String): Observable<Objects>

@@ -1,6 +1,7 @@
 package testco.kotlin.data.rest
 
 import io.reactivex.Observable
+import testco.kotlin.data.entity.AlbumEntity
 import java.util.*
 import javax.inject.Inject
 
@@ -9,7 +10,7 @@ import javax.inject.Inject
  */
 class RestApiImpl @Inject constructor(val restService: RestService) : RestApi {
 
-    override fun requestAlbums(id: String, artist: String): Observable<Objects> {
+    override fun requestAlbums(id: String, artist: String): Observable<List<AlbumEntity>> {
         return restService.requestAlbums(id, artist)
     }
 
