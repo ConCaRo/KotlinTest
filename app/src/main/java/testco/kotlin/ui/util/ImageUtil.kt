@@ -19,7 +19,7 @@ class ImageUtil {
                 .error(R.drawable.ic_launcher_background)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
 
-        fun loaImage(ctx: Context, imv: ImageView, thumb: String, org: String) {
+        fun loaImage(ctx: Context, imv: ImageView, thumb: String, org: String?) {
             Glide.with(ctx).load(org)
                     .apply(requestOptions)
                     .into(imv);

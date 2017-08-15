@@ -2,10 +2,10 @@ package testco.kotlin.ui.viewmodel
 
 import android.content.Context
 import android.databinding.BaseObservable
+import android.databinding.ObservableField
 import android.util.Log
 import android.widget.Toast
 import com.fernandocejas.sample.framework.interactor.UseCaseObserver
-import testco.kotlin.data.DummyData
 import testco.kotlin.domain.interactor.GetAlbumUsecase
 import testco.kotlin.domain.model.AlbumModel
 import javax.inject.Inject
@@ -15,18 +15,26 @@ import javax.inject.Inject
  */
 class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObservable() {
 
-    var album: AlbumModel = DummyData.getListAlbumModel().get(0)
+    var album: ObservableField<AlbumModel> = ObservableField<AlbumModel>()
+    var songs: ObservableField<String> = ObservableField<String>()
+    var artists: ObservableField<String> = ObservableField<String>()
+
     lateinit @Inject var getAlbumUsecase: GetAlbumUsecase
 
     fun loadData() {
         getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(true, ""))
+
+        /*album.addOnPropertyChangedCallback()*/
     }
 
     inner class AlbumObserver : UseCaseObserver<AlbumModel>() {
 
         override fun onNext(value: AlbumModel) {
             super.onNext(value)
-            album = value
+            album.set(value)
+            toStringListSongs()
+            toStringListArtists()
+
             Toast.makeText(context, "Hello", Toast.LENGTH_LONG).show()
             Log.d("Trong", value.toString())
         }
@@ -37,16 +45,17 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
         }
     }
 
-    fun toStringListSongs(): String {
+    fun toStringListSongs() {
         var s: String = "Songs: \n"
-        album?.songs?.forEach { s += it.name + "\n" }
-        return s
+        album?.get()?.songs?.forEach { s += it.name + "\n" }
+        songs.set(s)
     }
 
-    fun toStringListArtists(): String {
+    fun toStringListArtists() {
         var s: String = "Artists: \n"
-        album?.artists?.forEach { s += it.name + "\n" }
-        return s
+        album?.get()?.artists?.forEach { s += it.name + "\n" }
+        artists.set(s)
     }
 
 }
+

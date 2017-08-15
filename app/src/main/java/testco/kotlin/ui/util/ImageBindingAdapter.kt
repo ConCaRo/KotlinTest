@@ -10,7 +10,7 @@ object ImageBindingAdapter {
 
     @JvmStatic
     @BindingAdapter("imageUrl")
-    fun setImageUrl(imv: ImageView, url: String) {
+    fun setImageUrl(imv: ImageView, url: String?) {
         ImageUtil.loaImage(imv.context, imv, "", url)
     }
 }
