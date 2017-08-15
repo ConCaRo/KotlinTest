@@ -6,8 +6,6 @@ import testco.kotlin.di.module.ListMusicModule
 import testco.kotlin.di.subcomponent.DetailMusicComponent
 import testco.kotlin.di.subcomponent.ListMusicComponent
 import testco.kotlin.ui.App
-import testco.kotlin.ui.fragment.DetailMusicFragment
-import testco.kotlin.ui.fragment.ListMusicFragment
 import javax.inject.Singleton
 
 /**
@@ -26,8 +24,8 @@ interface ApplicationComponent {
     fun getAlbumsUsecase(): GetAlbumsUsecase*/
 
     fun inject(application: App)
-    fun inject(fragment: ListMusicFragment)
-    fun inject(fragment: DetailMusicFragment)
+    /*fun inject(fragment: ListMusicFragment)
+    fun inject(fragment: DetailMusicFragment)*/
 
     // Sub Components
     fun plus(module: ListMusicModule): ListMusicComponent

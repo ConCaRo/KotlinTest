@@ -3,6 +3,7 @@ package testco.kotlin.ui.viewmodel
 import android.content.Context
 import android.databinding.BaseObservable
 import android.util.Log
+import android.widget.Toast
 import com.fernandocejas.sample.framework.interactor.UseCaseObserver
 import testco.kotlin.data.DummyData
 import testco.kotlin.domain.interactor.GetAlbumUsecase
@@ -26,6 +27,7 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
         override fun onNext(value: AlbumModel) {
             super.onNext(value)
             album = value
+            Toast.makeText(context, "Hello", Toast.LENGTH_LONG).show()
             Log.d("Trong", value.toString())
         }
 
