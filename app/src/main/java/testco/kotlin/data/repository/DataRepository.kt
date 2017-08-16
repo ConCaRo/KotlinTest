@@ -17,13 +17,17 @@ import javax.inject.Singleton
 class DataRepository @Inject constructor(val dataStoreFactory: DataStoreFactory,
                                          val albumMapper: AlbumMapper) : DataRepository {
 
-    override fun requestAlbums(dataStatus: DataStatus, refresh: Boolean, id: String, artist: String): Observable<List<AlbumModel>> {
-        return dataStoreFactory.getDataStore(dataStatus).requestAlbums(refresh, id, artist)
+    override fun requestAlbums(dataStatus: DataStatus, refresh: Boolean, id: String, artist: String)
+            : Observable<List<AlbumModel>> {
+        return dataStoreFactory.getDataStore(dataStatus)
+                .requestAlbums(refresh, id, artist)
                 .map { albumMapper.transformCollection(it) }
     }
 
-    override fun requestAlbum(dataStatus: DataStatus, refresh: Boolean, id: String): Observable<AlbumModel> {
-        return dataStoreFactory.getDataStore(dataStatus).requestAlbum(refresh, id)
+    override fun requestAlbum(dataStatus: DataStatus, refresh: Boolean, id: String)
+            : Observable<AlbumModel> {
+        return dataStoreFactory.getDataStore(dataStatus)
+                .requestAlbum(refresh, id)
                 .map { albumMapper.transform(it) }
     }
 

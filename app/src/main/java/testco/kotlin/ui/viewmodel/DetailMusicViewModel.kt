@@ -22,8 +22,14 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
 
     lateinit @Inject var getAlbumUsecase: GetAlbumUsecase
 
+    var id: Int = -1
+    fun initData(id: Int) {
+        this.id = id
+    }
+
     fun loadData() {
-        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CLOUD, true, ""))
+        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CACHE, true, id.toString()))
+        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CLOUD, true, id.toString()))
 
         /*album.addOnPropertyChangedCallback()*/
     }

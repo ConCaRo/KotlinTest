@@ -20,6 +20,7 @@ class ListMusicViewModel @Inject constructor(var context: Context) : BaseObserva
     lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
 
     fun loadData() {
+        getAlbumsUsecase.execute(AlbumsObserver(), GetAlbumsUsecase.Param.initValue(DataStatus.CACHE, true, "", ""))
         getAlbumsUsecase.execute(AlbumsObserver(), GetAlbumsUsecase.Param.initValue(DataStatus.CLOUD, true, "", ""))
     }
 

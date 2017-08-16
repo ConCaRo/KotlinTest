@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
+import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import testco.kotlin.R
 import testco.kotlin.databinding.FragmentListMusicBinding
@@ -21,8 +22,8 @@ class ListMusicFragment : BaseFragment() {
     lateinit @Inject var viewModel: ListMusicViewModel
     lateinit var fragmentBinding: FragmentListMusicBinding
 
-   /* lateinit @Inject var realm: Realm
-    lateinit @Inject var gson: Gson
+    lateinit @Inject var realm: Realm
+    /* lateinit @Inject var gson: Gson
     lateinit @Inject var dataRepository: DataRepository*/
 
     companion object {
@@ -51,7 +52,9 @@ class ListMusicFragment : BaseFragment() {
         /*val json = gson.toJson(DummyData.getListAlbumModel())
         Log.d("Trong", json)*/
         // Test Realm
-        /*realm.deleteAll();*/
+        /*realm.beginTransaction()
+        realm.deleteAll();
+        realm.commitTransaction()*/
 
         viewModel.loadData()
     }
@@ -63,7 +66,7 @@ class ListMusicFragment : BaseFragment() {
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
         Log.d("MusicAdapter", "position clicked " + position)
-        val intent = DetailMusicActivity.callingIntent(activity, position)
+        val intent = DetailMusicActivity.callingIntent(activity, viewModel?.items[position]?.id!!)
         startActivity(intent)
     }
 }

@@ -11,10 +11,10 @@ import testco.kotlin.data.entity.AlbumEntity
 class DiskDataStore(val dbHelper: DBHelper) : DataStore {
 
     override fun requestAlbums(refresh: Boolean, id: String, artist: String): Observable<List<AlbumEntity>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return dbHelper.getAlbums()
     }
 
     override fun requestAlbum(refresh: Boolean, id: String): Observable<AlbumEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return dbHelper.getAlbum(id.toInt())
     }
 }

@@ -12,7 +12,8 @@ class DetailMusicActivity : BaseActivity() {
 
     companion object {
         fun callingIntent(context: Context,  position: Int): Intent {
-            return Intent(context, DetailMusicActivity::class.java).putExtra("position", position)
+            return Intent(context, DetailMusicActivity::class.java)
+                    .putExtra("id", position)
         }
     }
 
