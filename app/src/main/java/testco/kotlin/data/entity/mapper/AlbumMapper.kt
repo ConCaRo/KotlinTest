@@ -15,9 +15,11 @@ class AlbumMapper @Inject constructor(val artistMapper: ArtistMapper,
     : ModelMapper<AlbumModel, AlbumEntity>() {
 
     override fun transform(entity: AlbumEntity?): AlbumModel? {
-        return AlbumModel(entity?.name!!,
+        return AlbumModel(
+                entity?.id,
+                entity?.name!!,
                 entity.cover,
-                artistMapper.transformCollection(entity.artists),
+                artistMapper.transformCollection(entity?.artists!!),
                 songMapper.transformCollection(entity?.songs),
                 entity.release_date)
     }

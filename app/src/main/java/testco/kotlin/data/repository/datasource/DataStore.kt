@@ -8,7 +8,7 @@ import testco.kotlin.data.entity.AlbumEntity
  */
 interface DataStore {
 
-    fun requestAlbums(id: String, artist: String): Observable<List<AlbumEntity>>
+    fun requestAlbums(refresh: Boolean, id: String, artist: String): Observable<List<AlbumEntity>>
 
-    fun requestAlbum(id: String): Observable<AlbumEntity>
+    fun requestAlbum(refresh: Boolean, id: String): Observable<AlbumEntity>
 }

@@ -10,7 +10,7 @@ import javax.inject.Inject
 class RestApiImpl @Inject constructor(val restService: RestService) : RestApi {
 
     override fun requestAlbums(id: String, artist: String): Observable<List<AlbumEntity>> {
-        return restService.requestAlbums(id, artist)
+        return restService.requestAlbums(id, artist).doAfterNext {  }
     }
 
     override fun requestAlbum(id: String): Observable<AlbumEntity> {

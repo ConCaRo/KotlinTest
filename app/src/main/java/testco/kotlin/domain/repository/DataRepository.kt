@@ -1,6 +1,7 @@
 package testco.kotlin.domain.repository
 
 import io.reactivex.Observable
+import testco.kotlin.data.DataStatus
 import testco.kotlin.domain.model.AlbumModel
 
 /**
@@ -8,7 +9,7 @@ import testco.kotlin.domain.model.AlbumModel
  */
 interface DataRepository {
 
-    fun requestAlbums(refresh: Boolean, id: String, artist: String): Observable<List<AlbumModel>>
+    fun requestAlbums(dataStatus: DataStatus, refresh: Boolean, id: String, artist: String): Observable<List<AlbumModel>>
 
-    fun requestAlbum(refresh: Boolean, id: String): Observable<AlbumModel>
+    fun requestAlbum(dataStatus: DataStatus, refresh: Boolean, id: String): Observable<AlbumModel>
 }

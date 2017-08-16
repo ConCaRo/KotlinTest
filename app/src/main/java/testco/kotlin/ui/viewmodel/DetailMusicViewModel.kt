@@ -6,6 +6,7 @@ import android.databinding.ObservableField
 import android.util.Log
 import android.widget.Toast
 import com.fernandocejas.sample.framework.interactor.UseCaseObserver
+import testco.kotlin.data.DataStatus
 import testco.kotlin.domain.interactor.GetAlbumUsecase
 import testco.kotlin.domain.model.AlbumModel
 import javax.inject.Inject
@@ -22,7 +23,7 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
     lateinit @Inject var getAlbumUsecase: GetAlbumUsecase
 
     fun loadData() {
-        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(true, ""))
+        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CLOUD, true, ""))
 
         /*album.addOnPropertyChangedCallback()*/
     }

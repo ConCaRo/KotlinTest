@@ -1,6 +1,7 @@
 package testco.kotlin.data
 
 import io.reactivex.Observable
+import io.realm.RealmList
 import testco.kotlin.data.entity.AlbumEntity
 import testco.kotlin.data.entity.ArtistEntity
 import testco.kotlin.data.entity.SingerEntity
@@ -54,7 +55,7 @@ class DummyData {
         fun getListAlbumModel(): MutableList<AlbumModel> {
             val lsAlbums = ArrayList<AlbumModel>()
             for (i in 1..30) {
-                val music = AlbumModel("Album " + i, listImages.get(i), getListArtistModel(),
+                val music = AlbumModel(i,"Album " + i, listImages.get(i), getListArtistModel(),
                         getListSongModel(), "123-123-23")
                 lsAlbums.add(music)
             }
@@ -105,17 +106,17 @@ class DummyData {
 
         fun getListAlbum(): Observable<List<AlbumEntity>> {
 
-            val lsAlbums = ArrayList<AlbumEntity>()
+            val lsAlbums = RealmList<AlbumEntity>()
             for (i in 1..20) {
-                val music = AlbumEntity("Album " + i, listImages.get(i), getListArtist(),
-                        getListSong(), "123-123-23")
+                val music = AlbumEntity(i, "Album " + i, listImages.get(i), getListArtistRealmList(),
+                        getListSongRealmList(), "123-123-23")
                 lsAlbums.add(music)
             }
 
             return Observable.just(lsAlbums)
         }
 
-        fun getListArtist(): ArrayList<ArtistEntity> {
+        fun getListArtist(): List<ArtistEntity> {
             val artist0 = ArtistEntity("Artist 1", "123-123-23")
             val artist1 = ArtistEntity("Artist 2", "123-123-23")
             val artist2 = ArtistEntity("Artist 3", "123-123-23")
@@ -135,6 +136,46 @@ class DummyData {
             val artist5 = SingerEntity("Singer 5", "123-123-23")
 
             return arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5)
+        }
+
+
+        fun getListArtistRealmList(): RealmList<ArtistEntity> {
+            val result = RealmList<ArtistEntity>()
+            val artist0 = ArtistEntity("Artist 1", "123-123-23")
+            val artist1 = ArtistEntity("Artist 2", "123-123-23")
+            val artist2 = ArtistEntity("Artist 3", "123-123-23")
+            val artist3 = ArtistEntity("Artist 4", "123-123-23")
+            val artist4 = ArtistEntity("Artist 5", "123-123-23")
+            val artist5 = ArtistEntity("Artist 6", "123-123-23")
+
+            result.addAll(arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5))
+
+            return result
+        }
+
+        fun getListSingerRealmList(): RealmList<SingerEntity> {
+            val result = RealmList<SingerEntity>()
+            val artist0 = SingerEntity("Singer 0", "123-123-23")
+            val artist1 = SingerEntity("Singer 1", "123-123-23")
+            val artist2 = SingerEntity("Singer 2", "123-123-23")
+            val artist3 = SingerEntity("Singer 3", "123-123-23")
+            val artist4 = SingerEntity("Singer 4", "123-123-23")
+            val artist5 = SingerEntity("Singer 5", "123-123-23")
+            result.addAll(arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5))
+            return result
+        }
+
+
+        fun getListSongRealmList(): RealmList<SongEntity> {
+            val result = RealmList<SongEntity>()
+            val artist0 = SongEntity("Song 0", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            val artist1 = SongEntity("Song 1", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            val artist2 = SongEntity("Song 2", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            val artist3 = SongEntity("Song 3", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            val artist4 = SongEntity("Song 4", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            val artist5 = SongEntity("Song 5", getSinger(), getArtist(), "123-123-23", "Hello lyric")
+            result.addAll(arrayListOf(artist0, artist1, artist2, artist3, artist4, artist5))
+            return result
         }
 
         fun getListSong(): ArrayList<SongEntity> {

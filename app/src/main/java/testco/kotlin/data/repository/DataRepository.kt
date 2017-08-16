@@ -1,6 +1,7 @@
 package testco.kotlin.data.repository
 
 import io.reactivex.Observable
+import testco.kotlin.data.DataStatus
 import testco.kotlin.data.entity.mapper.AlbumMapper
 import testco.kotlin.data.repository.datasource.DataStoreFactory
 import testco.kotlin.domain.model.AlbumModel
@@ -16,13 +17,13 @@ import javax.inject.Singleton
 class DataRepository @Inject constructor(val dataStoreFactory: DataStoreFactory,
                                          val albumMapper: AlbumMapper) : DataRepository {
 
-    override fun requestAlbums(refresh: Boolean, id: String, artist: String): Observable<List<AlbumModel>> {
-        return dataStoreFactory.getDataStore().requestAlbums(id, artist)
+    override fun requestAlbums(dataStatus: DataStatus, refresh: Boolean, id: String, artist: String): Observable<List<AlbumModel>> {
+        return dataStoreFactory.getDataStore(dataStatus).requestAlbums(refresh, id, artist)
                 .map { albumMapper.transformCollection(it) }
     }
 
-    override fun requestAlbum(refresh: Boolean, id: String): Observable<AlbumModel> {
-        return dataStoreFactory.getDataStore().requestAlbum(id)
+    override fun requestAlbum(dataStatus: DataStatus, refresh: Boolean, id: String): Observable<AlbumModel> {
+        return dataStoreFactory.getDataStore(dataStatus).requestAlbum(refresh, id)
                 .map { albumMapper.transform(it) }
     }
 

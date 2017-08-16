@@ -4,6 +4,7 @@ import com.fernandocejas.sample.framework.executor.ExecutionThread
 import com.fernandocejas.sample.framework.executor.ThreadExecutor
 import com.fernandocejas.sample.framework.interactor.UseCase
 import io.reactivex.Observable
+import testco.kotlin.data.DataStatus
 import testco.kotlin.domain.model.AlbumModel
 import testco.kotlin.domain.repository.DataRepository
 import javax.inject.Inject
@@ -16,13 +17,13 @@ class GetAlbumUsecase@Inject constructor(threadExecutor: ThreadExecutor, executi
     : UseCase<AlbumModel, GetAlbumUsecase.Params>(threadExecutor, executionThread) {
 
     override fun buildObservable(params: Params): Observable<AlbumModel> {
-        return repository.requestAlbum(params.refresh, params.id)
+        return repository.requestAlbum(params.dataStatus, params.refresh, params.id)
     }
 
-    class Params constructor(val refresh: Boolean, val id: String) {
+    class Params constructor(val dataStatus: DataStatus, val refresh: Boolean, val id: String) {
         companion object {
-            fun init(refresh: Boolean, id: String): Params {
-                return Params(refresh, id)
+            fun init(dataStatus: DataStatus, refresh: Boolean, id: String): Params {
+                return Params(dataStatus, refresh, id)
             }
         }
     }

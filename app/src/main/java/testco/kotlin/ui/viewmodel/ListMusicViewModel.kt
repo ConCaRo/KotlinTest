@@ -6,6 +6,7 @@ import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
 import android.util.Log
 import com.fernandocejas.sample.framework.interactor.UseCaseObserver
+import testco.kotlin.data.DataStatus
 import testco.kotlin.domain.interactor.GetAlbumsUsecase
 import testco.kotlin.domain.model.AlbumModel
 import javax.inject.Inject
@@ -19,7 +20,7 @@ class ListMusicViewModel @Inject constructor(var context: Context) : BaseObserva
     lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
 
     fun loadData() {
-        getAlbumsUsecase.execute(AlbumsObserver(), GetAlbumsUsecase.Param.initValue(true, "", ""))
+        getAlbumsUsecase.execute(AlbumsObserver(), GetAlbumsUsecase.Param.initValue(DataStatus.CLOUD, true, "", ""))
     }
 
     inner class AlbumsObserver : UseCaseObserver<List<AlbumModel>>() {

@@ -8,11 +8,32 @@ import javax.inject.Inject
  */
 class DBHelper @Inject constructor(val realm: Realm) {
 
-    fun save() {
+    /*fun saveAlbums(items: List<AlbumEntity>) {
+        realm.copyToRealmOrUpdate(items)
+    }
+
+    fun saveAlbum(item: AlbumEntity) {
+        realm.copyToRealmOrUpdate(item)
+    }
+
+    fun getAlbums(): Observable<List<AlbumEntity>> {
+        return Observable.create(ObservableOnSubscribe<List<AlbumEntity>> { e ->
+            val lsItems = realm.where(AlbumEntity::class.java).findAll()
+            lsItems?.let {
+                e.onNext(realm.copyFromRealm(lsItems))
+                e.onComplete()
+            }
+        })
 
     }
 
-    fun getAlbums() {
-
-    }
+    fun getAlbum(id: Int): Observable<AlbumEntity> {
+        return Observable.create(ObservableOnSubscribe { e ->
+            val item = realm.where(AlbumEntity::class.java).equalTo("id", id).findFirst()
+            item?.let {
+                e.onNext(realm.copyFromRealm(item))
+                e.onComplete()
+            }
+        })
+    }*/
 }
