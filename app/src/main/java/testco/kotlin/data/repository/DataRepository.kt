@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 /**
  * Created by Concaro on 8/3/2017.
- * Retrieve data
+ * Retrieve data and map Entity data to Model data (transfer from Data to Domain)
  */
 @Singleton
 class DataRepository @Inject constructor(val dataStoreFactory: DataStoreFactory,

@@ -1,7 +1,6 @@
 package testco.kotlin.ui.viewmodel
 
 import android.content.Context
-import android.databinding.BaseObservable
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
 import android.util.Log
@@ -14,7 +13,19 @@ import javax.inject.Inject
 /**
  * Created by Concaro on 8/7/2017.
  */
-class ListMusicViewModel @Inject constructor(var context: Context) : BaseObservable() {
+class ListMusicViewModel @Inject constructor(context: Context) : BaseViewModel(context) {
+
+    override fun onActivityCreated() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onActivityResume() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onActivityDestroy() {
+        getAlbumsUsecase.dispose()
+    }
 
     var items: ObservableList<AlbumModel> = ObservableArrayList<AlbumModel>()
     lateinit @Inject var getAlbumsUsecase: GetAlbumsUsecase
@@ -34,7 +45,7 @@ class ListMusicViewModel @Inject constructor(var context: Context) : BaseObserva
 
         override fun onError(e: Throwable) {
             super.onError(e)
-            Log.d("Trong", e.printStackTrace().toString())
+            showErrorMessage(e)
         }
     }
 

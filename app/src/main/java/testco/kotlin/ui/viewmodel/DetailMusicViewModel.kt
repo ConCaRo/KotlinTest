@@ -1,7 +1,6 @@
 package testco.kotlin.ui.viewmodel
 
 import android.content.Context
-import android.databinding.BaseObservable
 import android.databinding.ObservableField
 import android.util.Log
 import android.widget.Toast
@@ -14,7 +13,16 @@ import javax.inject.Inject
 /**
  * Created by Concaro on 8/7/2017.
  */
-class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObservable() {
+class DetailMusicViewModel @Inject constructor(context: Context) : BaseViewModel(context) {
+    override fun onActivityCreated() {
+    }
+
+    override fun onActivityResume() {
+    }
+
+    override fun onActivityDestroy() {
+        getAlbumUsecase.dispose()
+    }
 
     var album: ObservableField<AlbumModel> = ObservableField<AlbumModel>()
     var songs: ObservableField<String> = ObservableField<String>()
@@ -29,7 +37,7 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
 
     fun loadData() {
         getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CACHE, true, id.toString()))
-        getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CLOUD, true, id.toString()))
+        //getAlbumUsecase.execute(AlbumObserver(), GetAlbumUsecase.Params.init(DataStatus.CLOUD, true, id.toString()))
 
         /*album.addOnPropertyChangedCallback()*/
     }
@@ -48,7 +56,7 @@ class DetailMusicViewModel @Inject constructor(var context: Context) : BaseObser
 
         override fun onError(e: Throwable) {
             super.onError(e)
-            Log.d("Trong", e.printStackTrace().toString())
+            showErrorMessage(e)
         }
     }
 

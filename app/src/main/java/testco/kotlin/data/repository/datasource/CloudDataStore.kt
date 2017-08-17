@@ -13,18 +13,20 @@ import testco.kotlin.data.rest.RestApi
 class CloudDataStore(val restApi: RestApi, val dbHelper: DBHelper) : DataStore {
     override fun requestAlbums(refresh: Boolean, id: String, artist: String)
             : Observable<List<AlbumEntity>> {
-        return restApi.requestAlbums(id, artist).doOnNext {
-            /*DO somtehing here : save data*/
-            dbHelper.saveAlbums(it)
-        } as Observable<List<AlbumEntity>>
+        return restApi.requestAlbums(id, artist)
+                .doOnNext {
+                    /*DO somtehing here : save data*/
+                    dbHelper.saveAlbums(it)
+                }
     }
 
     override fun requestAlbum(refresh: Boolean, id: String)
             : Observable<AlbumEntity> {
-        return restApi.requestAlbum(id).doOnNext {
-            /*DO somtehing here: save data*/
-            dbHelper.saveAlbum(it)
-        } as Observable<AlbumEntity>
+        return restApi.requestAlbum(id)
+                .doOnNext {
+                    /*DO somtehing here: save data*/
+                    dbHelper.saveAlbum(it)
+                }
     }
 
 }

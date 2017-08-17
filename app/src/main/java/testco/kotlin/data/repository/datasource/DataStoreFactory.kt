@@ -8,6 +8,7 @@ import javax.inject.Singleton
 
 /**
  * Created by Concaro on 8/3/2017.
+ * Choose data from CACHE or from CLOUD
  */
 @Singleton
 class DataStoreFactory @Inject constructor(val restApi: RestApi, val dbHelper: DBHelper) {

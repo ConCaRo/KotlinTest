@@ -69,4 +69,9 @@ class ListMusicFragment : BaseFragment() {
         val intent = DetailMusicActivity.callingIntent(activity, viewModel?.items[position]?.id!!)
         startActivity(intent)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onActivityDestroy()
+    }
 }

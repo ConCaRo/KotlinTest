@@ -39,4 +39,9 @@ class DetailMusicFragment : BaseFragment() {
     override fun init() {
         viewModel.loadData()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onActivityDestroy()
+    }
 }
