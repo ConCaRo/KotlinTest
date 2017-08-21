@@ -1,9 +1,6 @@
 package testco.kotlin.ui.exception
 
-import testco.kotlin.data.exception.DataException
-import testco.kotlin.data.exception.DatabaseException
-import testco.kotlin.data.exception.NetworkException
-import testco.kotlin.data.exception.OthersException
+import testco.kotlin.data.exception.*
 import javax.inject.Inject
 
 /**
@@ -19,9 +16,15 @@ class ErrorMessageFactory @Inject constructor() {
             errorMessage = "DataException " + e.message
         } else if (e is DatabaseException) {
             errorMessage = "DatabaseException " + e.message
-        } else if (e is OthersException) {
-            errorMessage = "OthersException " + e.message
+        } else if (e is MapperException) {
+            errorMessage = "MapperException " + e.message
+        }  else if (e is OthersDataException) {
+            errorMessage = "OthersDataException " + e.message
+        } else if (e is OthersDomainException) {
+            errorMessage = "OthersDomainException " + e.message
         }
+
+
         return errorMessage
     }
 }

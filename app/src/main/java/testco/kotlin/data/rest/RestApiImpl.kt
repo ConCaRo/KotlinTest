@@ -2,7 +2,7 @@ package testco.kotlin.data.rest
 
 import io.reactivex.Observable
 import testco.kotlin.data.entity.AlbumEntity
-import testco.kotlin.data.exception.ErrorDevider
+import testco.kotlin.data.exception.ErrorDivider
 import javax.inject.Inject
 
 /**
@@ -15,14 +15,14 @@ class RestApiImpl @Inject constructor(val restService: RestService) : RestApi {
         return restService.requestAlbums(id, artist)
                 .onErrorResumeNext {
                     t: Throwable ->
-                    Observable.error(ErrorDevider.devide(t))
+                    Observable.error(ErrorDivider.divide(t))
                 }
     }
 
     override fun requestAlbum(id: String): Observable<AlbumEntity> {
         return restService.requestAlbum(id).onErrorResumeNext {
             t: Throwable ->
-            Observable.error(ErrorDevider.devide(t))
+            Observable.error(ErrorDivider.divide(t))
         }
     }
 }

@@ -6,7 +6,7 @@ package testco.kotlin.data.rest
 class RestConstant {
 
     companion object {
-        val URL = "http://192.168.0.105:3000/"
+        val URL = "http://192.168.0.108:3000/"
         val BASE_URL = URL + ""
     }
 }

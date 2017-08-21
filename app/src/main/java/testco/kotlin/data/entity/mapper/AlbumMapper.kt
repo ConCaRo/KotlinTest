@@ -23,4 +23,15 @@ class AlbumMapper @Inject constructor(val artistMapper: ArtistMapper,
                 songMapper.transformCollection(entity?.songs),
                 entity.release_date)
     }
+
+    fun transformToModel(entity: AlbumEntity): AlbumModel {
+        return AlbumModel(
+                entity?.id,
+                entity?.name!!,
+                entity.cover,
+                artistMapper.transformCollection(entity?.artists!!),
+                songMapper.transformCollection(entity?.songs),
+                entity.release_date)
+    }
+
 }

@@ -10,11 +10,11 @@ import java.nio.charset.MalformedInputException
 /**
  * Created by Concaro on 8/17/2017.
  */
-class ErrorDevider {
+class ErrorDivider {
 
     companion object {
 
-        fun devide(t: Throwable): Throwable {
+        fun divide(t: Throwable): Throwable {
             if (t is MalformedJsonException || t is MalformedInputException
                     || t is MalformedURLException || t is NumberFormatException
                     || t is JsonSyntaxException) {
@@ -22,7 +22,15 @@ class ErrorDevider {
             } else if (t is SocketException || t is SocketTimeoutException) {
                 return NetworkException(t)
             }
-            return OthersException(t)
+            return OthersDataException(t)
+        }
+
+        fun divideDomainException(t: Throwable): Throwable {
+            if (t is NetworkException || t is DataException || t is OthersDataException
+                    || t is DatabaseException) {
+                return t
+            }
+            return MapperException(t)
         }
     }
 }

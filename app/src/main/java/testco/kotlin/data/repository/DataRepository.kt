@@ -3,6 +3,7 @@ package testco.kotlin.data.repository
 import io.reactivex.Observable
 import testco.kotlin.data.DataStatus
 import testco.kotlin.data.entity.mapper.AlbumMapper
+import testco.kotlin.data.exception.ErrorDivider
 import testco.kotlin.data.repository.datasource.DataStoreFactory
 import testco.kotlin.domain.model.AlbumModel
 import testco.kotlin.domain.repository.DataRepository
@@ -22,13 +23,21 @@ class DataRepository @Inject constructor(val dataStoreFactory: DataStoreFactory,
         return dataStoreFactory.getDataStore(dataStatus)
                 .requestAlbums(refresh, id, artist)
                 .map { albumMapper.transformCollection(it) }
+                .onErrorResumeNext { t: Throwable ->
+                    Observable.error(ErrorDivider.divideDomainException(t))
+                }
     }
 
     override fun requestAlbum(dataStatus: DataStatus, refresh: Boolean, id: String)
             : Observable<AlbumModel> {
         return dataStoreFactory.getDataStore(dataStatus)
                 .requestAlbum(refresh, id)
-                .map { albumMapper.transform(it) }
+                .map { albumMapper.transformToModel(it) }
+                .onErrorResumeNext { t: Throwable ->
+                    Observable.error(ErrorDivider.divideDomainException(t))
+                }
+
+
     }
 
 }
