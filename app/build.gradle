@@ -6,12 +6,12 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    //buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "testco.kotlin"
         minSdkVersion 18
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,12 +28,16 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 // Required for annotation processing plugins like Dagger
-kapt {
+/*kapt {
     generateStubs = true
-}
+}*/
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -41,29 +45,32 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
+    // implementation 'com.android.support.ciewonstraint:constraint-layout:1.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:26.0.0-beta1'
+    implementation 'com.android.support:design:27.1.1'
 
-    compile "com.squareup.okhttp3:okhttp:3.8.1"
-    compile "com.squareup.okhttp3:logging-interceptor:3.8.1"
-    compile("com.squareup.retrofit2:retrofit:2.3.0") {
+    implementation "com.squareup.okhttp3:okhttp:3.8.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.8.1"
+    implementation("com.squareup.retrofit2:retrofit:2.3.0") {
         // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
         exclude module: 'okhttp'
     }
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.2'
-    compile "javax.inject:javax.inject:1"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
+    implementation "javax.inject:javax.inject:1"
 
-    kapt "com.android.databinding:compiler:3.0.0-alpha3"
-    compile 'com.github.bumptech.glide:glide:4.0.0'
+    // kapt "com.android.databinding:compiler:3.0.0-alpha3"
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
     kapt 'com.github.bumptech.glide:compiler:4.0.0'
 
     kapt "com.google.dagger:dagger-compiler:2.10"
-    compile "com.google.dagger:dagger:2.10"
+    implementation "com.google.dagger:dagger:2.10"
+
+    implementation 'com.google.android:flexbox:0.3.1'
 
 }

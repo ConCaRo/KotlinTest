@@ -25,7 +25,7 @@ abstract class BaseFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater?.inflate(getLayout(), container, false)
         rootView = view as View
         return view;
@@ -50,7 +50,7 @@ abstract class BaseFragment : Fragment() {
     abstract fun init()
 
     fun getApplicationComponent(): ApplicationComponent {
-        return (activity.application as App).applicationComponent
+        return (activity?.application as App).applicationComponent
     }
 
 }

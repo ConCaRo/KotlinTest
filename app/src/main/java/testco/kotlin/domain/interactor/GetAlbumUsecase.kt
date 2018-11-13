@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by Concaro on 8/3/2017.
  */
-class GetAlbumUsecase@Inject constructor(threadExecutor: ThreadExecutor, executionThread: ExecutionThread,
+class GetAlbumUsecase @Inject constructor(threadExecutor: ThreadExecutor, executionThread: ExecutionThread,
                                          val repository: DataRepository)
     : UseCase<AlbumModel, GetAlbumUsecase.Params>(threadExecutor, executionThread) {
 

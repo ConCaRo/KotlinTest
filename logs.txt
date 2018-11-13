@@ -1,0 +1,228 @@
+app: 'annotationProcessor' dependencies won't be recognized as kapt annotation processors. Please change the configuration name to 'kapt' for these artifacts: 'com.android.databinding:compiler:3.1.1'.
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:transformDataBindingBaseClassLogWithDataBindingMergeGenClassesForDebug UP-TO-DATE
+:app:dataBindingGenBaseClassesDebug UP-TO-DATE
+:app:checkDebugManifest UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:prepareLintJar UP-TO-DATE
+:app:mainApkListPersistenceDebug UP-TO-DATE
+:app:createDebugCompatibleScreenManifests UP-TO-DATE
+:app:processDebugManifest
+:app:splitsDiscoveryTaskDebug UP-TO-DATE
+:app:processDebugResources
+:app:generateDebugSources
+:app:dataBindingExportBuildInfoDebug UP-TO-DATE
+:app:kaptGenerateStubsDebugKotlin
+:app:transformDataBindingWithDataBindingMergeArtifactsForDebug UP-TO-DATE
+:app:kaptDebugKotlin
+A problem was found with the configuration of task ':app:kaptDebugKotlin'. Registering invalid inputs and outputs via TaskInputs and TaskOutputs methods has been deprecated and is scheduled to be removed in Gradle 5.0.
+ - Cannot write to file '/Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/build/intermediates/data-binding/debug/bundle-bin' specified for property 'dataBindingArtifactOutputDir' as it is a directory.
+	at org.gradle.api.internal.tasks.TaskValidationContext$Severity$1.report(TaskValidationContext.java:42)
+	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:97)
+	at org.gradle.api.internal.tasks.execution.CleanupStaleOutputsExecuter.execute(CleanupStaleOutputsExecuter.java:87)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskArtifactStateTaskExecuter.execute(ResolveTaskArtifactStateTaskExecuter.java:52)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:52)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:54)
+	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.run(DefaultTaskGraphExecuter.java:248)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:241)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:230)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.processTask(DefaultTaskPlanExecutor.java:123)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.access$200(DefaultTaskPlanExecutor.java:79)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker$1.execute(DefaultTaskPlanExecutor.java:104)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker$1.execute(DefaultTaskPlanExecutor.java:98)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionPlan.execute(DefaultTaskExecutionPlan.java:626)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionPlan.executeWithTask(DefaultTaskExecutionPlan.java:581)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.run(DefaultTaskPlanExecutor.java:98)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+w: Note: Version 5.0.1 of Realm is now available: http://static.realm.io/downloads/java/latest
+w: Note: Processing class AlbumEntity
+w: Note: Processing class ArtistEntity
+w: Note: Processing class SingerEntity
+w: Note: Processing class SongEntity
+w: Note: Creating DefaultRealmModule
+w: Note: [1] Wrote GeneratedAppGlideModule with: []
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/build/tmp/kapt3/stubs/debug/testco/kotlin/ui/util/ListBinding.java:13: warning: Application namespace for attribute app:items will be ignored.
+    public static final void setItems(@org.jetbrains.annotations.NotNull()
+                             ^
+:app:compileDebugKotlin
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (22, 56): Unnecessary safe call on a non-null receiver of type AlbumEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (23, 54): Unnecessary safe call on a non-null receiver of type AlbumEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (29, 23): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (30, 23): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (32, 56): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (33, 54): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/ArtistMapper.kt: (15, 50): Unnecessary safe call on a non-null receiver of type ArtistEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SingerMapper.kt: (15, 50): Unnecessary safe call on a non-null receiver of type SingerEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SongMapper.kt: (20, 46): Unnecessary safe call on a non-null receiver of type SongEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SongMapper.kt: (22, 23): Unnecessary safe call on a non-null receiver of type SongEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (21, 43): Unnecessary safe call on a non-null receiver of type ViewGroup
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (27, 15): Unnecessary safe call on a non-null receiver of type MusicAdapter.MusicViewHolder
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (27, 28): Unnecessary safe call on a non-null receiver of type ItemMusicBinding
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (28, 15): Unnecessary safe call on a non-null receiver of type MusicAdapter.MusicViewHolder
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (28, 28): Unnecessary safe call on a non-null receiver of type ItemMusicBinding
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (32, 25): Unnecessary safe call on a non-null receiver of type ListMusicViewModel
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 13): Parameter 'id' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 22): Parameter 'name' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 36): Parameter 'link' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/BaseFragment.kt: (29, 28): Unnecessary safe call on a non-null receiver of type LayoutInflater
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (63, 69): No cast needed
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (67, 51): Parameter 'view' is never used, could be renamed to _
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (67, 67): Parameter 'type' is never used, could be renamed to _
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (69, 84): Unnecessary safe call on a non-null receiver of type ListMusicViewModel
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/util/ImageUtil.kt: (22, 52): Parameter 'thumb' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/util/ListBinding.kt: (15, 46): Parameter 'items' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/viewmodel/DetailMusicViewModel.kt: (65, 14): Unnecessary safe call on a non-null receiver of type ObservableField<AlbumModel>
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/viewmodel/DetailMusicViewModel.kt: (71, 14): Unnecessary safe call on a non-null receiver of type ObservableField<AlbumModel>
+:app:javaPreCompileDebug UP-TO-DATE
+:app:compileDebugJavaWithJavac
+:app:compileDebugNdk NO-SOURCE
+:app:compileDebugSources
+:app:mergeDebugShaders UP-TO-DATE
+:app:compileDebugShaders UP-TO-DATE
+:app:generateDebugAssets UP-TO-DATE
+:app:mergeDebugAssets UP-TO-DATE
+:app:extractTryWithResourcesSupportJarDebug UP-TO-DATE
+:app:transformClassesWithStackFramesFixerForDebug
+:app:transformClassesWithDesugarForDebug
+:app:transformClassesWithRealmTransformerForDebug
+:app:transformClassesWithDexBuilderForDebug
+D8: Stripped invalid locals information from 2 methods.
+:app:transformDexArchiveWithDexMergerForDebug
+:app:mergeDebugJniLibFolders
+:app:transformNativeLibsWithMergeJniLibsForDebug
+:app:transformNativeLibsWithStripDebugSymbolForDebug
+:app:processDebugJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForDebug
+:app:validateSigningDebug UP-TO-DATE
+:app:packageDebug
+:app:assembleDebug
+:app:preReleaseBuild
+:app:compileReleaseAidl
+:app:compileReleaseRenderscript
+:app:generateReleaseResValues
+:app:generateReleaseResources
+:app:mergeReleaseResources
+:app:transformDataBindingBaseClassLogWithDataBindingMergeGenClassesForRelease
+:app:dataBindingGenBaseClassesRelease
+:app:checkReleaseManifest
+:app:generateReleaseBuildConfig
+:app:mainApkListPersistenceRelease
+:app:createReleaseCompatibleScreenManifests
+:app:processReleaseManifest
+:app:splitsDiscoveryTaskRelease
+:app:processReleaseResources
+:app:generateReleaseSources
+:app:dataBindingExportBuildInfoRelease
+:app:kaptGenerateStubsReleaseKotlin
+:app:transformDataBindingWithDataBindingMergeArtifactsForRelease
+:app:kaptReleaseKotlin
+w: Note: Version 5.0.1 of Realm is now available: http://static.realm.io/downloads/java/latest
+w: Note: Processing class AlbumEntity
+w: Note: Processing class ArtistEntity
+w: Note: Processing class SingerEntity
+w: Note: Processing class SongEntity
+w: Note: Creating DefaultRealmModule
+w: Note: [1] Wrote GeneratedAppGlideModule with: []
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/build/tmp/kapt3/stubs/release/testco/kotlin/ui/util/ListBinding.java:13: warning: Application namespace for attribute app:items will be ignored.
+    public static final void setItems(@org.jetbrains.annotations.NotNull()
+                             ^
+:app:compileReleaseKotlin
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (22, 56): Unnecessary safe call on a non-null receiver of type AlbumEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (23, 54): Unnecessary safe call on a non-null receiver of type AlbumEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (29, 23): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (30, 23): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (32, 56): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/AlbumMapper.kt: (33, 54): Unnecessary safe call on a non-null receiver of type AlbumEntity
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/ArtistMapper.kt: (15, 50): Unnecessary safe call on a non-null receiver of type ArtistEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SingerMapper.kt: (15, 50): Unnecessary safe call on a non-null receiver of type SingerEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SongMapper.kt: (20, 46): Unnecessary safe call on a non-null receiver of type SongEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/data/entity/mapper/SongMapper.kt: (22, 23): Unnecessary safe call on a non-null receiver of type SongEntity?
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (21, 43): Unnecessary safe call on a non-null receiver of type ViewGroup
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (27, 15): Unnecessary safe call on a non-null receiver of type MusicAdapter.MusicViewHolder
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (27, 28): Unnecessary safe call on a non-null receiver of type ItemMusicBinding
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (28, 15): Unnecessary safe call on a non-null receiver of type MusicAdapter.MusicViewHolder
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (28, 28): Unnecessary safe call on a non-null receiver of type ItemMusicBinding
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/adapter/MusicAdapter.kt: (32, 25): Unnecessary safe call on a non-null receiver of type ListMusicViewModel
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 13): Parameter 'id' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 22): Parameter 'name' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/entity/Album.kt: (6, 36): Parameter 'link' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/BaseFragment.kt: (29, 28): Unnecessary safe call on a non-null receiver of type LayoutInflater
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (63, 69): No cast needed
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (67, 51): Parameter 'view' is never used, could be renamed to _
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (67, 67): Parameter 'type' is never used, could be renamed to _
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/fragment/ListMusicFragment.kt: (69, 84): Unnecessary safe call on a non-null receiver of type ListMusicViewModel
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/util/ImageUtil.kt: (22, 52): Parameter 'thumb' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/util/ListBinding.kt: (15, 46): Parameter 'items' is never used
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/viewmodel/DetailMusicViewModel.kt: (65, 14): Unnecessary safe call on a non-null receiver of type ObservableField<AlbumModel>
+w: /Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/src/main/java/testco/kotlin/ui/viewmodel/DetailMusicViewModel.kt: (71, 14): Unnecessary safe call on a non-null receiver of type ObservableField<AlbumModel>
+:app:javaPreCompileRelease
+:app:compileReleaseJavaWithJavac
+:app:compileReleaseNdk NO-SOURCE
+:app:compileReleaseSources
+:app:lintVitalRelease SKIPPED
+:app:mergeReleaseShaders
+:app:compileReleaseShaders
+:app:generateReleaseAssets
+:app:mergeReleaseAssets
+:app:extractTryWithResourcesSupportJarRelease
+:app:transformClassesWithStackFramesFixerForRelease
+:app:transformClassesWithDesugarForRelease
+:app:transformClassesWithRealmTransformerForRelease
+:app:transformClassesWithDexBuilderForRelease
+:app:transformDexArchiveWithDexMergerForRelease
+:app:mergeReleaseJniLibFolders
+:app:transformNativeLibsWithMergeJniLibsForRelease
+:app:transformNativeLibsWithStripDebugSymbolForRelease
+:app:processReleaseJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForRelease
+:app:packageRelease
+:app:assembleRelease
+:app:assemble
+:app:lint
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-gradle/26.1.1/lint-gradle-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/com-intellij/intellij-core/26.1.1/intellij-core-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint/26.1.1/lint-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/org-jetbrains/uast/26.1.1/uast-26.1.1.pom
+Download https://jcenter.bintray.com/org/codehaus/groovy/groovy-all/2.4.12/groovy-all-2.4.12.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-kotlin/26.1.1/lint-kotlin-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-checks/26.1.1/lint-checks-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/com-intellij/kotlin-compiler/26.1.1/kotlin-compiler-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-api/26.1.1/lint-api-26.1.1.pom
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint/26.1.1/lint-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-gradle/26.1.1/lint-gradle-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-api/26.1.1/lint-api-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-checks/26.1.1/lint-checks-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/com-intellij/intellij-core/26.1.1/intellij-core-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/org-jetbrains/uast/26.1.1/uast-26.1.1.jar
+Download https://jcenter.bintray.com/org/codehaus/groovy/groovy-all/2.4.12/groovy-all-2.4.12.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/external/com-intellij/kotlin-compiler/26.1.1/kotlin-compiler-26.1.1.jar
+Download https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-kotlin/26.1.1/lint-kotlin-26.1.1.jar
+Ran lint on variant debug: 30 issues found
+Ran lint on variant release: 30 issues found
+Wrote HTML report to file:///Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/build/reports/lint-results.html
+Wrote XML report to file:///Users/trong-android-dev/Documents/UX/Projects/KotlinTest.git/app/build/reports/lint-results.xml
+:app:kaptGenerateStubsDebugUnitTestKotlin
+:app:kaptDebugUnitTestKotlin
+:app:compileDebugUnitTestKotlin
+:app:preDebugUnitTestBuild UP-TO-DATE
+:app:javaPreCompileDebugUnitTest
+:app:compileDebugUnitTestJavaWithJavac FAILED
+78 actionable tasks: 57 executed, 21 up-to-date

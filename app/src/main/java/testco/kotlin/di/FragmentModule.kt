@@ -21,5 +21,5 @@ abstract class FragmentModule(val fragment: BaseFragment) {
     @Provides
     @FragmentScope
     @ActivityContext
-    fun provideFragmentContext(): Context = fragment.activity
+    fun provideFragmentContext(): Context = fragment.requireContext()
 }

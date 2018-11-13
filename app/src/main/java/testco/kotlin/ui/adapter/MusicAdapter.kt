@@ -17,12 +17,12 @@ class MusicAdapter(val itemOnClick: (View, Int, Int) -> Unit,
                    val ctx: Context,
                    val viewModel: ListMusicViewModel) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MusicViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_music, parent, false)
         return MusicViewHolder(v).onClick(itemOnClick)
     }
 
-    override fun onBindViewHolder(holder: MusicViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: MusicViewHolder, position: Int) {
         val albumModel = viewModel.items.get(position)
         holder?.itemBinding?.viewModel = MusicItemViewModel(ctx, albumModel)
         holder?.itemBinding?.executePendingBindings()

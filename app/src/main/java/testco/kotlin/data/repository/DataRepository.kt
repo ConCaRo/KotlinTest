@@ -36,8 +36,6 @@ class DataRepository @Inject constructor(val dataStoreFactory: DataStoreFactory,
                 .onErrorResumeNext { t: Throwable ->
                     Observable.error(ErrorDivider.divideDomainException(t))
                 }
-
-
     }
 
 }

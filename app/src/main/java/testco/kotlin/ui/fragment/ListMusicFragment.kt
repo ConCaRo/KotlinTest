@@ -61,12 +61,12 @@ class ListMusicFragment : BaseFragment() {
 
     fun initAdapter() {
         recyclerview.layoutManager = GridLayoutManager(activity, 2) as RecyclerView.LayoutManager?
-        recyclerview.adapter = MusicAdapter(itemOnClick, activity, viewModel)
+        recyclerview.adapter = MusicAdapter(itemOnClick, requireActivity(), viewModel)
     }
 
     val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
         Log.d("MusicAdapter", "position clicked " + position)
-        val intent = DetailMusicActivity.callingIntent(activity, viewModel?.items[position]?.id!!)
+        val intent = DetailMusicActivity.callingIntent(requireActivity(), viewModel?.items[position]?.id!!)
         startActivity(intent)
     }
 
